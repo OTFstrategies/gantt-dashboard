@@ -20,10 +20,11 @@
     "incremental": true,
     "allowImportingTsExtensions": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"],
+      "@bryntum/gantt": ["./vendor/gantt/gantt.module.js"],
+      "@bryntum/gantt-react": ["./vendor/gantt-react/lib/index.js"]
     },
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"

@@ -34,10 +34,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Files copied by postinstall
-/public/users
-/public/favicon.jpg
-/public/themes/
+# Environment
+.env
+.env.local
 
-# Credentials
-.npmrc
+# Generated from vendor/ on postinstall
+/node_modules/@bryntum

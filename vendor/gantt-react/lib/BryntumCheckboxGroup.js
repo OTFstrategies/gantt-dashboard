@@ -1,0 +1,182 @@
+import React from 'react';
+import { CheckboxGroup } from '@bryntum/gantt';
+import { createWidget, shouldComponentUpdate, processWidgetContent } from './WrapperHelper.js';
+export class BryntumCheckboxGroup extends React.Component {
+    constructor() {
+        super(...arguments);
+        this.processWidgetContent = processWidgetContent;
+    }
+    componentDidMount() {
+        this.instance = createWidget(this);
+    }
+    componentWillUnmount() {
+        var _a, _b;
+        (_b = (_a = this.instance) === null || _a === void 0 ? void 0 : _a.destroy) === null || _b === void 0 ? void 0 : _b.call(_a);
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        return shouldComponentUpdate(this, nextProps, nextState);
+    }
+    render() {
+        const className = `b-react-checkbox-group-container`;
+        return (React.createElement("div", { className: className, ref: (element) => (this.element = element) }));
+    }
+}
+BryntumCheckboxGroup.instanceClass = CheckboxGroup;
+BryntumCheckboxGroup.instanceName = 'CheckboxGroup';
+BryntumCheckboxGroup.configNames = [
+    'adopt',
+    'align',
+    'anchor',
+    'ariaDescription',
+    'ariaLabel',
+    'autoUpdateRecord',
+    'bbar',
+    'bodyCls',
+    'bubbleEvents',
+    'centered',
+    'collapsible',
+    'color',
+    'config',
+    'constrainTo',
+    'contentElementCls',
+    'dataField',
+    'defaultBindProperty',
+    'defaultFocus',
+    'defaults',
+    'detectCSSCompatibilityIssues',
+    'dock',
+    'draggable',
+    'drawer',
+    'elementAttributes',
+    'floating',
+    'footer',
+    'header',
+    'hideAnimation',
+    'hideWhenEmpty',
+    'htmlCls',
+    'icon',
+    'ignoreParentReadOnly',
+    'itemCls',
+    'labelCls',
+    'labelWidth',
+    'lazyItems',
+    'listeners',
+    'localeClass',
+    'localizable',
+    'localizableProperties',
+    'maskDefaults',
+    'masked',
+    'monitorResize',
+    'name',
+    'namedItems',
+    'options',
+    'owner',
+    'positioned',
+    'preventTooltipOnTouch',
+    'relayStoreEvents',
+    'ripple',
+    'rootElement',
+    'scrollAction',
+    'showAnimation',
+    'showTooltipWhenDisabled',
+    'stateful',
+    'statefulEvents',
+    'stateId',
+    'stateProvider',
+    'strips',
+    'tab',
+    'tabBarItems',
+    'tag',
+    'tbar',
+    'textAlign',
+    'textContent',
+    'trapFocus',
+    'type',
+    'ui',
+    'weight'
+];
+BryntumCheckboxGroup.propertyConfigNames = [
+    'alignSelf',
+    'appendTo',
+    'callOnFunctions',
+    'catchEventHandlerExceptions',
+    'cls',
+    'collapsed',
+    'column',
+    'content',
+    'dataset',
+    'disabled',
+    'extraData',
+    'flex',
+    'height',
+    'hidden',
+    'html',
+    'id',
+    'inline',
+    'inputFieldAlign',
+    'insertBefore',
+    'insertFirst',
+    'items',
+    'keyMap',
+    'label',
+    'labelPosition',
+    'layout',
+    'layoutStyle',
+    'margin',
+    'maxHeight',
+    'maximizeOnMobile',
+    'maxSelectedOptions',
+    'maxWidth',
+    'minHeight',
+    'minSelectedOptions',
+    'minWidth',
+    'onBeforeChange',
+    'onBeforeDestroy',
+    'onBeforeHide',
+    'onBeforeSetRecord',
+    'onBeforeShow',
+    'onBeforeStateApply',
+    'onBeforeStateSave',
+    'onCatchAll',
+    'onChange',
+    'onCollapse',
+    'onDestroy',
+    'onDirtyStateChange',
+    'onElementCreated',
+    'onExpand',
+    'onFocusIn',
+    'onFocusOut',
+    'onHide',
+    'onPaint',
+    'onReadOnly',
+    'onRecompose',
+    'onResize',
+    'onShow',
+    'onToolClick',
+    'readOnly',
+    'record',
+    'rendition',
+    'requiredSelectedOptions',
+    'rtl',
+    'scrollable',
+    'span',
+    'strictRecordMapping',
+    'title',
+    'tools',
+    'tooltip',
+    'value',
+    'width',
+    'x',
+    'y'
+];
+BryntumCheckboxGroup.propertyNames = [
+    'anchorSize',
+    'focusVisible',
+    'hasChanges',
+    'isSettingValues',
+    'isValid',
+    'parent',
+    'state',
+    'values'
+];
+//# sourceMappingURL=BryntumCheckboxGroup.js.map

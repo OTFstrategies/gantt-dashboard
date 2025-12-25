@@ -1,0 +1,17 @@
+{
+  "name": "@bryntum/gantt",
+  "version": "7.1.0",
+  "description": "Bryntum Gantt component",
+  "type": "module",
+  "main": "gantt.module.js",
+  "module": "gantt.module.js",
+  "types": "./gantt.d.ts",
+  "exports": {
+    ".": {
+      "import": "./gantt.module.js",
+      "require": "./gantt.umd.js",
+      "types": "./gantt.d.ts"
+    },
+    "./*": "./*"
+  }
+}
