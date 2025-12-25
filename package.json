@@ -1,0 +1,49 @@
+{
+  "name": "gantt-dashboard",
+  "description": "Gantt Dashboard met Bryntum Gantt",
+  "version": "1.0.0",
+  "author": {
+    "name": "Mick"
+  },
+  "private": true,
+  "homepage": "./",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next dev",
+    "export": "next export",
+    "lint": "next lint",
+    "postinstall": "postinstall"
+  },
+  "postinstall": {
+    "node_modules/@bryntum/demo-resources/images/favicon.png": "copy public/favicon.png",
+    "node_modules/@bryntum/demo-resources/images/transparent-users/*": "copy public/users/",
+    "node_modules/@bryntum/gantt/*.css*": "copy public/themes/",
+    "node_modules/@bryntum/gantt/fontawesome/**": "copy public/themes/fontawesome/"
+  },
+  "dependencies": {
+    "@bryntum/demo-resources": "7.1.0",
+    "@bryntum/gantt": "npm:@bryntum/gantt-trial@7.1.0",
+    "@bryntum/gantt-react": "7.1.0",
+    "@types/node": "20.1.7",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.1",
+    "next": "^16.1.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "postinstall": "0.7.4",
+    "sass": "1.78.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": "next/core-web-vitals"
+  }
+}
