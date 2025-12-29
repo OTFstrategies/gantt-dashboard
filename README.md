@@ -1,95 +1,95 @@
-# NEXT.js with App Router
+# Gantt Dashboard - Multi-Workspace Project Management Platform
 
-This example uses Bryntum Gantt wrapped in the provided `BryntumGantt` wrapper.
-This demo contains the React Gantt chart wrapper and the demo is written in Next.js using the App Router.
+Een uitgebreid projectmanagement platform voor 4 afdelingen met uniforme ISO workflow.
 
-This application was generated with:
+## Tech Stack
 
-* [React](https://react.dev/) [18.2.0]
-* [Next.js](https://nextjs.org/docs/) [13.4.2]
+- **Frontend**: Next.js 16, React 18, TypeScript
+- **UI Components**: Bryntum Suite 7.1.0 (Gantt, Calendar, TaskBoard, Grid)
+- **Backend**: Supabase (PostgreSQL, Auth, RLS)
+- **Deployment**: Vercel
 
-# Bryntum Repository access setup
+## Documentatie
 
-**IMPORTANT NOTE!** These access instructions are mandatory when using the private Bryntum NPM repository.
+| Document | Beschrijving |
+|----------|--------------|
+| [OUTCOMES.md](OUTCOMES.md) | 9 Outcomes met Key Results |
+| [DELIVERABLES.md](DELIVERABLES.md) | 29 Deliverables index |
+| [SECTIONS.md](SECTIONS.md) | Sectie-indeling per deliverable |
+| [TASKS.md](TASKS.md) | 458 Taken met acceptance criteria |
+| [WBS-AGENTS.md](WBS-AGENTS.md) | 12 AI Agents met RACI matrix |
+| [PROMPTS.md](PROMPTS.md) | Claude Code CLI prompts |
 
-This application uses npm packages from the Bryntum private NPM repository. You must be logged-in to this repository as
-a licensed or trial user to access the packages.
+### Deliverable Modules
 
-Please check [Online npm repository guide](https://bryntum.com/products/gantt/docs/guide/Gantt/npm-repository) for the detailed information on the
-sign-up/login process.
+| Module | Inhoud |
+|--------|--------|
+| [DELIVERABLES-CODE.md](DELIVERABLES-CODE.md) | D1-D10: Code deliverables |
+| [DELIVERABLES-INFRA.md](DELIVERABLES-INFRA.md) | D11-D14: Infrastructure |
+| [DELIVERABLES-DOCS.md](DELIVERABLES-DOCS.md) | D15-D17: Documentatie |
+| [DELIVERABLES-MIRO.md](DELIVERABLES-MIRO.md) | M1-M7: Miro boards |
+| [DELIVERABLES-PROCESS.md](DELIVERABLES-PROCESS.md) | P1-P5: Process docs |
 
-# React integration guide
+## AI Agent Framework
 
-Please check the [Bryntum React integration online guide](https://bryntum.com/products/gantt/docs/guide/Gantt/integration/react/guide) for detailed
-integration information and help.
+Het project gebruikt een multi-agent systeem met 12 gespecialiseerde agents:
 
-# Installation
+| Agent | Rol |
+|-------|-----|
+| A0 Orchestrator | Project coördinatie |
+| A1 Architect | System design |
+| A2 Frontend | React/Next.js |
+| A3 Bryntum | Gantt, Calendar, TaskBoard, Grid |
+| A4 Backend | API/Supabase |
+| A5 Database | PostgreSQL/RLS |
+| A6 Auth | Supabase Auth |
+| A7 DevOps | Vercel/CI/CD |
+| A8 Documenter | Technische docs |
+| A9 Visual | UI/UX design |
+| A10 Process | Workflows |
+| A11 QA | Testing |
 
-Use the following command to install the example packages after the successful login.
+### Claude Code CLI Gebruik
 
-Using **npm**:
+Open Claude Code en gebruik een prompt uit [PROMPTS.md](PROMPTS.md):
 
-```shell
+```bash
+claude
+```
+
+Voorbeeld prompt:
+```
+Je bent de AI Orchestrator (A0) voor het Gantt Dashboard project.
+Project locatie: C:\Users\Mick\Projects\gantt-dashboard
+Lees OUTCOMES.md, DELIVERABLES.md en WBS-AGENTS.md voor context.
+Geef me een project status overview.
+```
+
+## Sprint Structuur
+
+| Sprint | Naam | Deliverables |
+|--------|------|--------------|
+| 1 | Foundation | D11, D12, D14, D1 |
+| 2 | Core Views | D2, D3, D4 |
+| 3 | Extended Views | D5, D8, D13 |
+| 4 | Application | D6, D7, D9 |
+| 5 | Features & Polish | D10, D15-D17, M1-M7, P1-P5 |
+
+## Installatie
+
+```bash
 npm install
-```
-
-Using **yarn**:
-
-```shell
-yarn install
-```
-
-# Running a development server
-
-To build example and start development server run this command:
-
-Using **npm**:
-
-```shell
 npm run dev
 ```
 
-Using **yarn**:
+Navigate to http://localhost:3000
 
-```shell
-yarn run dev
-```
+## Bryntum Licentie
 
-Navigate to `http://localhost:3000/` or `http://127.0.0.1:3000/` in your browser. We recommend to use latest versions of
-modern browsers like Chrome, FireFox, Safari or Edge. The app will automatically reload if you change any of
-the source files.
+Dit project gebruikt Bryntum Suite 7.1.0. Zie [Bryntum npm repository guide](https://bryntum.com/products/gantt/docs/guide/Gantt/npm-repository) voor setup.
 
-# Creating a production build
+## Links
 
-To build production code for the example run this command:
-
-Using **npm**:
-
-```shell
-npm run build
-```
-
-Using **yarn**:
-
-```shell
-yarn run build
-```
-
-The build artifacts will be stored in the `out/` directory.
-
-# Distribution zip references
-
-* Bryntum API docs. Open `docs/index.html` in your browser.
-* Bryntum Repository guide `docs/guides/npm-repository.md`.
-* Bryntum React integration guide `docs/guides/integration/react/guide.md`.
-
-# Online References
-
-* [Next](https://nextjs.org/docs)
-* [React Framework](https://react.dev/)
-* [Bryntum React integration guide](https://bryntum.com/products/gantt/docs/guide/Gantt/integration/react/guide)
-* [Bryntum Gantt documentation](https://bryntum.com/products/gantt/docs/)
-* [Bryntum Gantt examples](https://bryntum.com/products/gantt/examples/)
-* [Bryntum npm repository guide](https://bryntum.com/products/gantt/docs/guide/Gantt/npm-repository)
-* [Bryntum support Forum](https://forum.bryntum.com/)
-* [Contacts us](https://bryntum.com/contact/)
+- [Next.js Docs](https://nextjs.org/docs)
+- [Bryntum Gantt Docs](https://bryntum.com/products/gantt/docs/)
+- [Supabase Docs](https://supabase.com/docs)
