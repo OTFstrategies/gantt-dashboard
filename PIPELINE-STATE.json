@@ -1,0 +1,239 @@
+{
+  "version": "1.0.0",
+  "projectName": "Gantt Dashboard",
+  "createdAt": "2024-12-27T00:00:00Z",
+  "lastUpdated": "2024-12-27T00:00:00Z",
+  "currentPhase": "DESIGN",
+  "overallProgress": 0,
+
+  "phases": {
+    "DESIGN": { "order": 1, "status": "PENDING", "progress": 0 },
+    "BUILD_FOUNDATION": { "order": 2, "status": "PENDING", "progress": 0 },
+    "BUILD_FEATURES": { "order": 3, "status": "PENDING", "progress": 0 },
+    "REVIEW": { "order": 4, "status": "PENDING", "progress": 0 },
+    "TEST": { "order": 5, "status": "PENDING", "progress": 0 },
+    "INTEGRATE": { "order": 6, "status": "PENDING", "progress": 0 },
+    "VERIFY": { "order": 7, "status": "PENDING", "progress": 0 }
+  },
+
+  "chats": {
+    "A1": {
+      "name": "Architect",
+      "role": "architect",
+      "domain": "architecture",
+      "status": "IDLE",
+      "blockedBy": [],
+      "currentTask": null,
+      "branch": null,
+      "outputs": [],
+      "sessions": []
+    },
+    "B0": {
+      "name": "Builder-Foundation",
+      "role": "builder",
+      "domain": "foundation",
+      "status": "IDLE",
+      "blockedBy": ["A1"],
+      "currentTask": null,
+      "branch": "feature/foundation",
+      "outputs": [],
+      "sessions": []
+    },
+    "B1": {
+      "name": "Builder-Gantt",
+      "role": "builder",
+      "domain": "gantt",
+      "status": "IDLE",
+      "blockedBy": ["A1", "B0"],
+      "currentTask": null,
+      "branch": "feature/gantt",
+      "outputs": [],
+      "sessions": []
+    },
+    "B2": {
+      "name": "Builder-Calendar",
+      "role": "builder",
+      "domain": "calendar",
+      "status": "IDLE",
+      "blockedBy": ["A1", "B0"],
+      "currentTask": null,
+      "branch": "feature/calendar",
+      "outputs": [],
+      "sessions": []
+    },
+    "B3": {
+      "name": "Builder-TaskBoard",
+      "role": "builder",
+      "domain": "taskboard",
+      "status": "IDLE",
+      "blockedBy": ["A1", "B0"],
+      "currentTask": null,
+      "branch": "feature/taskboard",
+      "outputs": [],
+      "sessions": []
+    },
+    "B4": {
+      "name": "Builder-Dashboard",
+      "role": "builder",
+      "domain": "dashboard",
+      "status": "IDLE",
+      "blockedBy": ["A1", "B0"],
+      "currentTask": null,
+      "branch": "feature/dashboard",
+      "outputs": [],
+      "sessions": []
+    },
+    "R0": {
+      "name": "Reviewer-Foundation",
+      "role": "reviewer",
+      "domain": "foundation",
+      "status": "IDLE",
+      "blockedBy": ["B0"],
+      "reviews": "B0",
+      "currentTask": null,
+      "outputs": [],
+      "sessions": []
+    },
+    "R1": {
+      "name": "Reviewer-Gantt",
+      "role": "reviewer",
+      "domain": "gantt",
+      "status": "IDLE",
+      "blockedBy": ["B1"],
+      "reviews": "B1",
+      "currentTask": null,
+      "outputs": [],
+      "sessions": []
+    },
+    "R2": {
+      "name": "Reviewer-Calendar",
+      "role": "reviewer",
+      "domain": "calendar",
+      "status": "IDLE",
+      "blockedBy": ["B2"],
+      "reviews": "B2",
+      "currentTask": null,
+      "outputs": [],
+      "sessions": []
+    },
+    "R3": {
+      "name": "Reviewer-TaskBoard",
+      "role": "reviewer",
+      "domain": "taskboard",
+      "status": "IDLE",
+      "blockedBy": ["B3"],
+      "reviews": "B3",
+      "currentTask": null,
+      "outputs": [],
+      "sessions": []
+    },
+    "R4": {
+      "name": "Reviewer-Dashboard",
+      "role": "reviewer",
+      "domain": "dashboard",
+      "status": "IDLE",
+      "blockedBy": ["B4"],
+      "reviews": "B4",
+      "currentTask": null,
+      "outputs": [],
+      "sessions": []
+    },
+    "T0": {
+      "name": "Tester-Foundation",
+      "role": "tester",
+      "domain": "foundation",
+      "status": "IDLE",
+      "blockedBy": ["R0"],
+      "tests": "B0",
+      "currentTask": null,
+      "outputs": [],
+      "sessions": []
+    },
+    "T1": {
+      "name": "Tester-Gantt",
+      "role": "tester",
+      "domain": "gantt",
+      "status": "IDLE",
+      "blockedBy": ["R1"],
+      "tests": "B1",
+      "currentTask": null,
+      "outputs": [],
+      "sessions": []
+    },
+    "T2": {
+      "name": "Tester-Calendar",
+      "role": "tester",
+      "domain": "calendar",
+      "status": "IDLE",
+      "blockedBy": ["R2"],
+      "tests": "B2",
+      "currentTask": null,
+      "outputs": [],
+      "sessions": []
+    },
+    "T3": {
+      "name": "Tester-TaskBoard",
+      "role": "tester",
+      "domain": "taskboard",
+      "status": "IDLE",
+      "blockedBy": ["R3"],
+      "tests": "B3",
+      "currentTask": null,
+      "outputs": [],
+      "sessions": []
+    },
+    "T4": {
+      "name": "Tester-Dashboard",
+      "role": "tester",
+      "domain": "dashboard",
+      "status": "IDLE",
+      "blockedBy": ["R4"],
+      "tests": "B4",
+      "currentTask": null,
+      "outputs": [],
+      "sessions": []
+    },
+    "I1": {
+      "name": "Integrator",
+      "role": "integrator",
+      "domain": "integration",
+      "status": "IDLE",
+      "blockedBy": ["T0", "T1", "T2", "T3", "T4"],
+      "currentTask": null,
+      "branch": "main",
+      "outputs": [],
+      "sessions": []
+    },
+    "V1": {
+      "name": "Verifier",
+      "role": "verifier",
+      "domain": "verification",
+      "status": "IDLE",
+      "blockedBy": ["I1"],
+      "currentTask": null,
+      "outputs": [],
+      "sessions": []
+    }
+  },
+
+  "qualityGates": {
+    "A1": { "architectureApproved": null },
+    "B0": { "reviewPassed": null, "testPassed": null, "approved": null },
+    "B1": { "reviewPassed": null, "testPassed": null, "approved": null },
+    "B2": { "reviewPassed": null, "testPassed": null, "approved": null },
+    "B3": { "reviewPassed": null, "testPassed": null, "approved": null },
+    "B4": { "reviewPassed": null, "testPassed": null, "approved": null },
+    "I1": { "integrationPassed": null },
+    "V1": { "verificationPassed": null }
+  },
+
+  "artifacts": {
+    "architecture": [],
+    "code": [],
+    "reviews": [],
+    "tests": [],
+    "reports": []
+  },
+
+  "timeline": []
+}

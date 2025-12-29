@@ -1,6 +1,174 @@
 # Plan van Aanpak: Gantt Dashboard Development
 
-> **Strategisch ontwikkelplan** voor parallelle development met 4 Claude chats + 1 coordinator.
+> **Strategisch ontwikkelplan** met 18-chat kwaliteitspipeline onder beheer van een Master Orchestrator Agent.
+
+---
+
+## 0. Architectuur Update (v2.0)
+
+Dit plan is geüpdatet naar een **18-chat Quality Pipeline** met:
+
+- **1 Master Orchestrator** - Jouw enige contactpunt
+- **1 Architect** - Ontwerpt systeem en contracts
+- **5 Builders** - Bouwen features
+- **5 Reviewers** - Controleren code kwaliteit
+- **5 Testers** - Valideren runtime gedrag
+- **1 Integrator** - Merged alle branches
+- **1 Verifier** - Eindcontrole tegen requirements
+
+**Zie:** [ORCHESTRATOR-AGENT.md](./ORCHESTRATOR-AGENT.md) voor volledige pipeline documentatie.
+
+**Kernprincipe:** Kwaliteit > Snelheid. Elke output wordt gecontroleerd voordat deze doorgaat.
+
+---
+
+## 0.5 Business Context & Outcomes
+
+> 📋 Zie **[OUTCOMES.md](./OUTCOMES.md)** voor alle 9 outcomes en 231 key results.
+
+### Organisatiestructuur
+
+| Aspect | Waarde |
+|--------|--------|
+| **Afdelingen** | 4 (uniform ISO workflow) |
+| **Workspace types** | Afdeling + Klant-project |
+| **Max concurrent users** | 5 |
+| **Gebruik** | ~40 uur/week |
+
+### Multi-Workspace Architectuur
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                        PROJECT PLATFORM                              │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐   │
+│  │ Afdeling A  │ │ Afdeling B  │ │ Afdeling C  │ │ Afdeling D  │   │
+│  │ (workspace) │ │ (workspace) │ │ (workspace) │ │ (workspace) │   │
+│  └──────┬──────┘ └──────┬──────┘ └──────┬──────┘ └──────┬──────┘   │
+│         │               │               │               │           │
+│         └───────────────┴───────┬───────┴───────────────┘           │
+│                                 │                                    │
+│                    ┌────────────┴────────────┐                      │
+│                    │    Klant-projecten      │                      │
+│                    │  (tijdelijke workspaces) │                      │
+│                    └─────────────────────────┘                      │
+│                                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### RBAC Rollen (5)
+
+| Rol | Scope | Rechten |
+|-----|-------|---------|
+| **Admin** | Platform-breed | Volledige toegang |
+| **Vault Medewerker** | Eigen afdeling | Platform + Vault |
+| **Medewerker** | Eigen afdeling | Platform (geen Vault) |
+| **Klant Editor** | Eigen project | Bewerken (geen Vault) |
+| **Klant Viewer** | Eigen project | Alleen lezen |
+
+### Vault Systeem
+
+```
+Project "klaar"  ──▶  VAULT  ──▶  EXPORT
+                      │
+           ┌─────────┬┴┬─────────┐
+           ▼         ▼          ▼
+        INPUT   PROCESSING    DONE ──▶ 30 dagen ──▶ Auto-delete
+```
+
+- Klanten zien Vault NOOIT
+- Alleen Admin en Vault MW hebben toegang
+- Automatische trigger bij project "klaar"
+- 30 dagen retentie in "Done" column
+
+---
+
+## 0.6 Project Deliverables
+
+> 📋 Zie **[DELIVERABLES.md](./DELIVERABLES.md)** voor de complete specificatie van alle deliverables.
+
+### Deliverables Overzicht (29)
+
+| Categorie | Aantal | Codes | Beschrijving |
+|-----------|--------|-------|--------------|
+| **Code Modules** | 10 | D1-D10 | Foundation, Views, Features |
+| **Infrastructure** | 4 | D11-D14 | Database, Auth, API, Deploy |
+| **Documentation** | 3 | D15-D17 | Architecture, Contracts, API Docs |
+| **Miro Boards** | 7 | M1-M7 | Visuele documentatie per Outcome |
+| **Process Documents** | 5 | P1-P5 | Rollen, Procedures, Glossary |
+| | **29** | | |
+
+### Code Modules (D1-D10)
+
+```
+Foundation Layer:
+├── D1:  Foundation Module      ──► Bryntum config, types, ProjectModel
+│
+View Layer:
+├── D2:  Gantt Module          ──► BryntumGantt, tasks, dependencies
+├── D3:  Calendar Module       ──► BryntumCalendar, events, views
+├── D4:  TaskBoard Module      ──► Kanban, swimlanes, WIP limits
+├── D5:  Grid Module           ──► Data grid, filters, export
+│
+Feature Layer:
+├── D6:  Dashboard Module      ──► Unified view, navigation
+├── D7:  Workspace Module      ──► Multi-tenant, members
+├── D8:  Auth/RBAC Module      ──► 5 rollen, permissions
+├── D9:  Vault Module          ──► Data processing, 30-day retention
+└── D10: Export Module         ──► PDF, Excel, CSV
+```
+
+### Infrastructure (D11-D14)
+
+```
+D11: Database Schema    ──► Supabase PostgreSQL, RLS policies
+         │
+         ▼
+D12: Auth Configuration ──► Supabase Auth, email templates
+         │
+         ▼
+D13: API Routes         ──► Next.js routes, CrudManager sync
+         │
+         ▼
+D14: Deployment         ──► Vercel, environment management
+```
+
+### Miro Boards (M1-M7)
+
+| Board | Outcome | Inhoud |
+|-------|---------|--------|
+| **M1** | O1 Samenwerking | Workflow diagrams, user journeys |
+| **M2** | O2 Unified View | Wireframes Gantt/Calendar/Board/Grid |
+| **M3** | O3-O4 Toegang | Workspace hiërarchie, isolation |
+| **M4** | O5-O6 Security | RBAC matrix, Vault workflow |
+| **M5** | O7 Export | Format specs, configuration UI |
+| **M6** | O8 Visual Docs | Meta-board, templates, style guide |
+| **M7** | O9 Rollen | Org charts, procedure flows |
+
+### Process Documents (P1-P5)
+
+| Document | Inhoud | KRs |
+|----------|--------|-----|
+| **P1** ROLLEN.md | 5 platform + org rollen, rechtenmatrix | KR9.1-9.9 |
+| **P2** PROCEDURES.md | 28 procedures (platform, org, klant) | KR9.10-9.37 |
+| **P3** GLOSSARY.md | A-Z termen, afkortingen | KR9.38-9.42 |
+| **P4** TAXONOMY.md | Entity hiërarchie, classificaties | KR9.43-9.50 |
+| **P5** ONBOARDING.md | Per-rol onboarding flows | KR9.25 |
+
+### Mapping: Outcomes → Deliverables
+
+| Outcome | Primaire Deliverables | Supporting |
+|---------|----------------------|------------|
+| **O1** Samenwerking | D1, D6 | M1, P2 |
+| **O2** Unified View | D2, D3, D4, D5, D6 | D1, M2 |
+| **O3** Afdelingsscheiding | D7 | D8, D11, M3 |
+| **O4** Klantsamenwerking | D7, D8 | D11, M3 |
+| **O5** RBAC | D8 | D11, D12, M4, P1 |
+| **O6** Vault | D9 | D4, D8, M4 |
+| **O7** Export | D10 | D2-D5, M5 |
+| **O8** Visuele Docs | M1-M7 | D15 |
+| **O9** Rollen & Procedures | P1-P5 | M7 |
 
 ---
 
@@ -19,6 +187,9 @@ Een volledige project management dashboard bouwen met:
 | Framework | Next.js 16 (App Router) |
 | UI Library | React 18 |
 | Scheduling | Bryntum Suite 7.1.0 |
+| Database | Supabase (PostgreSQL) |
+| Auth | Supabase Auth + RBAC |
+| Hosting | Vercel / Netlify |
 | Styling | SCSS + Bryntum Themes |
 | State | Shared ProjectModel |
 | Language | TypeScript |
@@ -669,5 +840,43 @@ gebruikt wordt. Kan dit in src/lib/utils/ komen?
 
 ---
 
-*Document versie: 1.0*
-*Laatst bijgewerkt: December 2024*
+---
+
+## 13. Gerelateerde Documenten
+
+| Document | Beschrijving |
+|----------|--------------|
+| [OUTCOMES.md](./OUTCOMES.md) | **9 Outcomes, 231 Key Results** |
+| [DELIVERABLES.md](./DELIVERABLES.md) | **29 Deliverables** met DoD, RACI, Artefacts |
+| [ORCHESTRATOR-AGENT.md](./ORCHESTRATOR-AGENT.md) | Master Orchestrator systeem en pipeline |
+| [PIPELINE-STATE.json](./PIPELINE-STATE.json) | Live status van alle chats |
+| [TODO-MASTER-PLAN.md](./TODO-MASTER-PLAN.md) | Documentatie overzicht (338 docs) |
+| [FOLDER-OWNERSHIP.md](./FOLDER-OWNERSHIP.md) | Exclusieve file eigendom per chat |
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | Technische architectuur (door A1) |
+| [CONTRACTS.md](./CONTRACTS.md) | Interface contracts (door A1) |
+
+---
+
+## 14. Volgende Stappen
+
+### Direct te Starten
+1. Open eerste chat: **A1 (Architect)**
+2. Geef Architect prompt (zie ORCHESTRATOR-AGENT.md)
+3. Wacht op ARCHITECTURE.md en CONTRACTS.md
+
+### Na A1 Completion
+1. Open chat: **B0 (Builder-Foundation)**
+2. Na B0: Start **R0** en **T0** voor review/test
+3. Na B0 approval: Start **B1-B4** parallel
+
+### Pipeline Automation
+- Orchestrator (deze chat) beheert alle 18 chats
+- Jij (Owner) praat alleen met Orchestrator
+- Status updates via PIPELINE-STATE.json
+
+---
+
+*Document versie: 2.3*
+*Laatst bijgewerkt: 29 December 2024*
+*Architect: 18-Chat Quality Pipeline*
+*Outcomes: 9 | Key Results: 231 | Deliverables: 29*
