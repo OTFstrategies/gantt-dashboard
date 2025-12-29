@@ -51,19 +51,23 @@ Het project gebruikt een multi-agent systeem met 12 gespecialiseerde agents:
 
 ### Claude Code CLI Gebruik
 
-Open Claude Code en gebruik een prompt uit [PROMPTS.md](PROMPTS.md):
+**Optie 1: MCP Server (aanbevolen)**
+
+De MCP server is al geregistreerd. Gebruik prompts met `/prompt`:
 
 ```bash
 claude
+# In Claude Code:
+/prompt start              # Begin met volledige context
+/prompt status             # Project status
+/prompt sprint 1           # Start Sprint 1
+/prompt deliverable D2     # Werk aan Gantt Module
+/prompt agent A3           # Neem rol Bryntum Specialist
 ```
 
-Voorbeeld prompt:
-```
-Je bent de AI Orchestrator (A0) voor het Gantt Dashboard project.
-Project locatie: C:\Users\Mick\Projects\gantt-dashboard
-Lees OUTCOMES.md, DELIVERABLES.md en WBS-AGENTS.md voor context.
-Geef me een project status overview.
-```
+**Optie 2: Handmatige prompts**
+
+Kopieer een prompt uit [PROMPTS.md](PROMPTS.md) en plak in Claude Code.
 
 ## Sprint Structuur
 

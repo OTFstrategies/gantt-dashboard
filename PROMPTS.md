@@ -1,6 +1,26 @@
 # Claude Code Prompts - Gantt Dashboard Project
 
-Kopieer een prompt hieronder en plak in Claude Code CLI.
+## 🔌 MCP Server (Aanbevolen)
+
+De MCP server is geregistreerd. Gebruik `/prompt` in Claude Code:
+
+```
+/prompt start              # Begin met volledige context
+/prompt status             # Project status
+/prompt sprint 1           # Start Sprint 1
+/prompt deliverable D2     # Werk aan specifieke deliverable
+/prompt agent A3           # Neem agent rol aan
+/prompt continue           # Ga verder waar je was
+/prompt commit             # Commit en rapporteer
+/prompt review src/...     # Review code
+/prompt debug "error msg"  # Debug probleem
+```
+
+---
+
+## 📋 Handmatige Prompts
+
+Alternatief: kopieer een prompt hieronder en plak in Claude Code CLI.
 
 ---
 
