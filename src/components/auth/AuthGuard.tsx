@@ -207,14 +207,14 @@ export function AuthGuard({
       fallback || (
         <div className="auth-guard-loading">
           <Loading size="lg" text="Authenticeren..." />
-          <style jsx>{`
+          <style dangerouslySetInnerHTML={{__html: `
             .auth-guard-loading {
               display: flex;
               align-items: center;
               justify-content: center;
               min-height: 100vh;
             }
-          `}</style>
+          `}} />
         </div>
       )
     )

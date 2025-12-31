@@ -25,7 +25,7 @@ function TaskBoardContent() {
         <main className="taskboard-content">
           <TaskBoardSkeleton />
         </main>
-        <style jsx>{pageStyles}</style>
+        <style dangerouslySetInnerHTML={{__html: pageStyles}} />
       </div>
     )
   }
@@ -34,7 +34,7 @@ function TaskBoardContent() {
     return (
       <div className="taskboard-error">
         <p>Fout: {syncState.error}</p>
-        <style jsx>{pageStyles}</style>
+        <style dangerouslySetInnerHTML={{__html: pageStyles}} />
       </div>
     )
   }
@@ -59,7 +59,7 @@ function TaskBoardContent() {
         </ErrorBoundary>
       </main>
 
-      <style jsx>{pageStyles}</style>
+      <style dangerouslySetInnerHTML={{__html: pageStyles}} />
     </div>
   )
 }

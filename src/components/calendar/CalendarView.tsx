@@ -229,7 +229,7 @@ function CalendarViewInner({
           <div className="calendar-view__spinner" />
           <p>Kalender laden...</p>
         </div>
-        <style jsx>{styles}</style>
+        <style dangerouslySetInnerHTML={{__html: styles}} />
       </div>
     )
   }
@@ -242,7 +242,7 @@ function CalendarViewInner({
           <span className="calendar-view__error-icon">⚠️</span>
           <p>{syncState.error}</p>
         </div>
-        <style jsx>{styles}</style>
+        <style dangerouslySetInnerHTML={{__html: styles}} />
       </div>
     )
   }
@@ -284,8 +284,8 @@ function CalendarViewInner({
         culture="nl"
         style={{ height: '100%' }}
       />
-      <style jsx>{styles}</style>
-      <style jsx global>{globalStyles}</style>
+      <style dangerouslySetInnerHTML={{__html: styles}} />
+      <style dangerouslySetInnerHTML={{__html: globalStyles}} />
     </div>
   )
 }

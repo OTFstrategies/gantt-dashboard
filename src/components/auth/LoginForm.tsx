@@ -95,7 +95,7 @@ export function LoginForm({ onSuccess, className = '' }: LoginFormProps) {
         <a href="/forgot-password">Wachtwoord vergeten?</a>
       </div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .login-form {
           width: 100%;
           max-width: 400px;
@@ -191,7 +191,7 @@ export function LoginForm({ onSuccess, className = '' }: LoginFormProps) {
           border-color: var(--color-border, #3d3d5c);
           color: var(--color-text-primary, #f8f9fa);
         }
-      `}</style>
+      `}} />
     </form>
   )
 }

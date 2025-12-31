@@ -61,7 +61,7 @@ function GanttContent() {
         </ErrorBoundary>
       </main>
 
-      <style jsx>{pageStyles}</style>
+      <style dangerouslySetInnerHTML={{__html: pageStyles}} />
     </div>
   )
 }
