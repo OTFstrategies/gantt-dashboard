@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Inloggen met Magic Link - Gantt Dashboard</title>
+  <style>
+    /* Reset en basis styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a2e;
+      background-color: #f5f5f7;
+      padding: 20px;
+    }
+
+    /* Container */
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Header */
+    .email-header {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .email-header h1 {
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .logo {
+      margin-bottom: 16px;
+    }
+
+    .logo-icon {
+      width: 60px;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon svg {
+      width: 32px;
+      height: 32px;
+      fill: #ffffff;
+    }
+
+    /* Body */
+    .email-body {
+      padding: 40px 30px;
+    }
+
+    .greeting {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #1a1a2e;
+    }
+
+    .message {
+      font-size: 16px;
+      color: #4a5568;
+      margin-bottom: 16px;
+    }
+
+    /* Magic link highlight */
+    .magic-highlight {
+      margin: 24px 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      border: 2px dashed #10b981;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .magic-highlight .icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .magic-highlight p {
+      font-size: 14px;
+      color: #065f46;
+    }
+
+    /* Button */
+    .button-container {
+      text-align: center;
+      margin: 32px 0;
+    }
+
+    .button {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 16px 48px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Alternative link */
+    .alternative-link {
+      margin-top: 24px;
+      padding: 20px;
+      background-color: #f8fafc;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .alternative-link p {
+      margin-bottom: 8px;
+    }
+
+    .link-url {
+      word-break: break-all;
+      color: #10b981;
+      font-size: 12px;
+    }
+
+    /* Warning box */
+    .warning-box {
+      margin-top: 32px;
+      padding: 16px;
+      background-color: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      border-radius: 0 8px 8px 0;
+      font-size: 14px;
+      color: #92400e;
+    }
+
+    /* Security notice */
+    .security-notice {
+      margin-top: 24px;
+      padding: 16px;
+      background-color: #f8fafc;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    .security-notice h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+
+    .security-notice ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .security-notice li {
+      padding: 4px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .security-notice li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+    }
+
+    /* Footer */
+    .email-footer {
+      padding: 24px 30px;
+      background-color: #f8fafc;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .footer-text {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
+
+    .footer-links {
+      margin-top: 16px;
+    }
+
+    .footer-links a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 13px;
+      margin: 0 12px;
+    }
+
+    .footer-links a:hover {
+      color: #10b981;
+    }
+
+    /* Responsive */
+    @media only screen and (max-width: 480px) {
+      .email-body {
+        padding: 30px 20px;
+      }
+
+      .email-header {
+        padding: 30px 20px;
+      }
+
+      .button {
+        display: block;
+        padding: 14px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="email-header">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3l9 4v7c0 5-3.5 9.5-9 11-5.5-1.5-9-6-9-11V7l9-4zm0 2.18L5 8.09v5.91c0 3.9 2.7 7.45 7 8.93 4.3-1.48 7-5.03 7-8.93V8.09l-7-2.91z"/>
+            <path d="M12 7a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-3 8c0-2 1-3 3-3s3 1 3 3H9z"/>
+          </svg>
+        </div>
+      </div>
+      <h1>Magic Link Login</h1>
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+      <p class="greeting">Hallo!</p>
+
+      <p class="message">
+        Je hebt een verzoek gedaan om in te loggen bij Gantt Dashboard zonder wachtwoord.
+        Klik op de onderstaande knop om direct in te loggen.
+      </p>
+
+      <!-- Magic link highlight -->
+      <div class="magic-highlight">
+        <div class="icon">&#10024;</div>
+        <p><strong>Geen wachtwoord nodig!</strong></p>
+        <p>Met een klik ben je ingelogd</p>
+      </div>
+
+      <!-- Button -->
+      <div class="button-container">
+        <a href="{{ .ConfirmationURL }}" class="button">
+          Direct inloggen
+        </a>
+      </div>
+
+      <!-- Alternative link -->
+      <div class="alternative-link">
+        <p><strong>Werkt de knop niet?</strong></p>
+        <p>Kopieer en plak de volgende link in je browser:</p>
+        <p class="link-url">{{ .ConfirmationURL }}</p>
+      </div>
+
+      <!-- Warning box -->
+      <div class="warning-box">
+        <strong>Belangrijk:</strong> Deze link is 24 uur geldig en kan slechts eenmaal worden gebruikt.
+        Deel deze link met niemand - iedereen met deze link kan inloggen op jouw account.
+      </div>
+
+      <!-- Security notice -->
+      <div class="security-notice">
+        <h4>Beveiligingstips:</h4>
+        <ul>
+          <li>Open deze link alleen op een vertrouwd apparaat</li>
+          <li>Deel deze email nooit met anderen</li>
+          <li>Log uit na gebruik op gedeelde computers</li>
+          <li>Bij twijfel: vraag een nieuwe login link aan</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="email-footer">
+      <p class="footer-text">
+        <strong>Heb je geen login link aangevraagd?</strong>
+      </p>
+      <p class="footer-text">
+        Negeer deze email dan. Je account is veilig en er is geen actie nodig.
+        Mocht je verdachte activiteit vermoeden, wijzig dan je wachtwoord.
+      </p>
+      <div class="footer-links">
+        <a href="{{ .SiteURL }}">Website</a>
+        <a href="{{ .SiteURL }}/privacy">Privacy</a>
+        <a href="{{ .SiteURL }}/support">Support</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

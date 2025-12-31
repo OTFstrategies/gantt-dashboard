@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bevestig je email - Gantt Dashboard</title>
+  <style>
+    /* Reset en basis styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a2e;
+      background-color: #f5f5f7;
+      padding: 20px;
+    }
+
+    /* Container */
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Header */
+    .email-header {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .email-header h1 {
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .logo {
+      margin-bottom: 16px;
+    }
+
+    .logo-icon {
+      width: 60px;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon svg {
+      width: 32px;
+      height: 32px;
+      fill: #ffffff;
+    }
+
+    /* Body */
+    .email-body {
+      padding: 40px 30px;
+    }
+
+    .greeting {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #1a1a2e;
+    }
+
+    .message {
+      font-size: 16px;
+      color: #4a5568;
+      margin-bottom: 32px;
+    }
+
+    /* Button */
+    .button-container {
+      text-align: center;
+      margin: 32px 0;
+    }
+
+    .button {
+      display: inline-block;
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 16px 40px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
+
+    /* Alternative link */
+    .alternative-link {
+      margin-top: 24px;
+      padding: 20px;
+      background-color: #f8fafc;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .alternative-link p {
+      margin-bottom: 8px;
+    }
+
+    .link-url {
+      word-break: break-all;
+      color: #3b82f6;
+      font-size: 12px;
+    }
+
+    /* Info box */
+    .info-box {
+      margin-top: 32px;
+      padding: 16px;
+      background-color: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      border-radius: 0 8px 8px 0;
+      font-size: 14px;
+      color: #92400e;
+    }
+
+    /* Footer */
+    .email-footer {
+      padding: 24px 30px;
+      background-color: #f8fafc;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .footer-text {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
+
+    .footer-links {
+      margin-top: 16px;
+    }
+
+    .footer-links a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 13px;
+      margin: 0 12px;
+    }
+
+    .footer-links a:hover {
+      color: #3b82f6;
+    }
+
+    /* Responsive */
+    @media only screen and (max-width: 480px) {
+      .email-body {
+        padding: 30px 20px;
+      }
+
+      .email-header {
+        padding: 30px 20px;
+      }
+
+      .button {
+        display: block;
+        padding: 14px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="email-header">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 3h18v2H3V3zm0 4h12v2H3V7zm0 4h18v2H3v-2zm0 4h12v2H3v-2zm0 4h18v2H3v-2z"/>
+          </svg>
+        </div>
+      </div>
+      <h1>Gantt Dashboard</h1>
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+      <p class="greeting">Welkom bij Gantt Dashboard!</p>
+
+      <p class="message">
+        Bedankt voor je registratie. Om je account te activeren en toegang te krijgen tot alle functies,
+        dien je eerst je emailadres te bevestigen.
+      </p>
+
+      <p class="message">
+        Klik op de onderstaande knop om je emailadres te bevestigen:
+      </p>
+
+      <!-- Button -->
+      <div class="button-container">
+        <a href="{{ .ConfirmationURL }}" class="button">
+          Bevestig mijn email
+        </a>
+      </div>
+
+      <!-- Alternative link -->
+      <div class="alternative-link">
+        <p><strong>Werkt de knop niet?</strong></p>
+        <p>Kopieer en plak de volgende link in je browser:</p>
+        <p class="link-url">{{ .ConfirmationURL }}</p>
+      </div>
+
+      <!-- Info box -->
+      <div class="info-box">
+        <strong>Let op:</strong> Deze link is 24 uur geldig. Als de link verlopen is,
+        kun je een nieuwe bevestigingsmail aanvragen via de inlogpagina.
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="email-footer">
+      <p class="footer-text">
+        Je ontvangt deze email omdat je je hebt geregistreerd voor Gantt Dashboard.
+      </p>
+      <p class="footer-text">
+        Heb je je niet geregistreerd? Dan kun je deze email veilig negeren.
+      </p>
+      <div class="footer-links">
+        <a href="{{ .SiteURL }}">Website</a>
+        <a href="{{ .SiteURL }}/privacy">Privacy</a>
+        <a href="{{ .SiteURL }}/support">Support</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,253 @@
+# =============================================================================
+# Supabase Auth Configuration - Gantt Dashboard
+# =============================================================================
+# Dit bestand configureert Supabase Auth voor het Gantt Dashboard project.
+# Pas de waarden aan voor je specifieke omgeving.
+# =============================================================================
+
+[project]
+id = "gantt-dashboard"
+name = "Gantt Dashboard"
+
+# =============================================================================
+# API Configuration
+# =============================================================================
+[api]
+# Schakel API in
+enabled = true
+# API poort (lokaal development)
+port = 54321
+# Maximale aantal rijen per request
+max_rows = 1000
+
+# =============================================================================
+# Database Configuration
+# =============================================================================
+[db]
+# Database poort (lokaal development)
+port = 54322
+# Schakel database pooling in voor betere performance
+pool_size = 15
+
+# =============================================================================
+# Auth Configuration
+# =============================================================================
+[auth]
+# Schakel Supabase Auth in
+enabled = true
+
+# JWT Settings
+# -----------------------------------------------------------------------------
+# Access token expiry: 1 uur (3600 seconden)
+jwt_expiry = 3600
+# Refresh token rotation aanpassen in dashboard
+
+# Site URL - wordt gebruikt voor redirects na auth acties
+# -----------------------------------------------------------------------------
+# Let op: Pas dit aan per environment
+site_url = "http://localhost:3000"
+
+# Redirect URLs - toegestane redirect bestemmingen
+# -----------------------------------------------------------------------------
+# Voeg alle geldige redirect URLs toe voor je applicatie
+additional_redirect_urls = [
+  # Localhost development
+  "http://localhost:3000",
+  "http://localhost:3000/**",
+  "http://127.0.0.1:3000",
+  "http://127.0.0.1:3000/**",
+
+  # Vercel Preview deployments
+  "https://*.vercel.app",
+  "https://*.vercel.app/**",
+
+  # Production domain (pas aan naar je eigen domein)
+  "https://gantt-dashboard.vercel.app",
+  "https://gantt-dashboard.vercel.app/**",
+
+  # Custom production domain (indien van toepassing)
+  # "https://dashboard.jouwdomein.nl",
+  # "https://dashboard.jouwdomein.nl/**"
+]
+
+# Email Provider Settings
+# -----------------------------------------------------------------------------
+[auth.email]
+# Schakel email authenticatie in
+enabled = true
+
+# Sta nieuwe registraties toe
+enable_signup = true
+
+# Vereis email bevestiging voor nieuwe accounts
+enable_confirmations = true
+
+# Dubbele opt-in: stuur bevestiging ook bij email wijziging
+double_confirm_changes = true
+
+# Secure email change: oude email moet bevestigen
+secure_email_change = true
+
+# Email templates directory
+template_path = "./templates"
+
+# Subject lines voor emails
+[auth.email.template]
+confirmation = { subject = "Bevestig je email - Gantt Dashboard" }
+recovery = { subject = "Wachtwoord herstellen - Gantt Dashboard" }
+magic_link = { subject = "Login link - Gantt Dashboard" }
+email_change = { subject = "Bevestig email wijziging - Gantt Dashboard" }
+invite = { subject = "Uitnodiging voor Gantt Dashboard Workspace" }
+
+# Password Policy
+# -----------------------------------------------------------------------------
+[auth.password]
+# Minimum wachtwoord lengte
+min_length = 8
+
+# Vereis hoofdletters
+require_uppercase = true
+
+# Vereis kleine letters
+require_lowercase = true
+
+# Vereis cijfers
+require_numbers = true
+
+# Vereis speciale tekens (optioneel, kan strenger zijn)
+require_special = false
+
+# Wachtwoord sterkte hints weergeven aan gebruiker
+show_strength_indicator = true
+
+# Phone/SMS Auth (uitgeschakeld)
+# -----------------------------------------------------------------------------
+[auth.sms]
+enabled = false
+
+# External OAuth Providers
+# -----------------------------------------------------------------------------
+# Configureer OAuth providers in Supabase Dashboard
+[auth.external.google]
+enabled = false
+client_id = ""
+secret = ""
+
+[auth.external.github]
+enabled = false
+client_id = ""
+secret = ""
+
+[auth.external.azure]
+enabled = false
+client_id = ""
+secret = ""
+
+# Magic Link Settings
+# -----------------------------------------------------------------------------
+[auth.magic_link]
+enabled = true
+# Magic link geldig voor 24 uur
+expires_in = 86400
+
+# Rate Limiting
+# -----------------------------------------------------------------------------
+# Bescherm tegen brute force en abuse
+[auth.rate_limits]
+# Email rate limiting
+email.rate_limit = 4
+email.rate_limit_interval = "1h"
+
+# SMS rate limiting (indien ingeschakeld)
+sms.rate_limit = 4
+sms.rate_limit_interval = "1h"
+
+# Token refresh rate limiting
+token_refresh.rate_limit = 150
+token_refresh.rate_limit_interval = "5m"
+
+# Sign up rate limiting
+signup.rate_limit = 10
+signup.rate_limit_interval = "1h"
+
+# Sign in rate limiting
+signin.rate_limit = 30
+signin.rate_limit_interval = "5m"
+
+# Password recovery rate limiting
+recovery.rate_limit = 4
+recovery.rate_limit_interval = "1h"
+
+# Verify rate limiting
+verify.rate_limit = 10
+verify.rate_limit_interval = "1h"
+
+# Session Settings
+# -----------------------------------------------------------------------------
+[auth.sessions]
+# Sessie timeout in seconden (7 dagen)
+timebox = 604800
+
+# Inactivity timeout in seconden (24 uur)
+inactivity_timeout = 86400
+
+# Single session mode: alleen 1 actieve sessie per gebruiker
+single_per_user = false
+
+# =============================================================================
+# Studio Configuration (lokaal development)
+# =============================================================================
+[studio]
+enabled = true
+port = 54323
+
+# =============================================================================
+# Analytics Configuration
+# =============================================================================
+[analytics]
+enabled = true
+port = 54327
+
+# =============================================================================
+# Functions Configuration (Edge Functions)
+# =============================================================================
+[functions]
+enabled = true
+
+# =============================================================================
+# Storage Configuration
+# =============================================================================
+[storage]
+enabled = true
+# Maximale bestandsgrootte: 50MB
+file_size_limit = "50MiB"
+
+# =============================================================================
+# Realtime Configuration
+# =============================================================================
+[realtime]
+enabled = true
+# IP versie voor realtime connections
+ip_version = 4
+
+# =============================================================================
+# Security Headers
+# =============================================================================
+[security]
+# Content Security Policy headers
+enable_csp = true
+
+# Strict Transport Security
+enable_hsts = true
+hsts_max_age = 31536000
+hsts_include_subdomains = true
+hsts_preload = true
+
+# X-Frame-Options
+x_frame_options = "DENY"
+
+# X-Content-Type-Options
+x_content_type_options = "nosniff"
+
+# Referrer Policy
+referrer_policy = "strict-origin-when-cross-origin"

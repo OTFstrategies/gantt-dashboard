@@ -11,21 +11,47 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "node scripts/postinstall.js"
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "postinstall": "node scripts/postinstall.js",
+    "validate-env": "npx ts-node scripts/validate-env.ts",
+    "setup-production": "npx ts-node scripts/setup-production.ts",
+    "typecheck": "tsc --noEmit",
+    "prebuild": "npm run typecheck"
   },
   "dependencies": {
+    "@hello-pangea/dnd": "^18.0.1",
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.47.10",
+    "@tanstack/react-table": "^8.21.3",
+    "@types/file-saver": "^2.0.7",
     "@types/node": "^20.1.7",
     "@types/react": "^18.2.6",
+    "@types/react-big-calendar": "^1.16.3",
     "@types/react-dom": "^18.2.4",
+    "date-fns": "^4.1.0",
     "eslint": "^9.39.2",
     "eslint-config-next": "^16.1.1",
+    "file-saver": "^2.0.5",
+    "frappe-gantt": "^1.0.4",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.4",
     "next": "^16.1.1",
     "react": "^18.2.0",
+    "react-big-calendar": "^1.19.4",
     "react-dom": "^18.2.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "sass": "^1.78.0"
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.1",
+    "@vitejs/plugin-react": "^5.1.2",
+    "jsdom": "^27.4.0",
+    "sass": "^1.78.0",
+    "ts-node": "^10.9.2",
+    "vitest": "^4.0.16"
   },
   "engines": {
     "node": ">=20.0.0"

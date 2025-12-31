@@ -21,6 +21,13 @@
     "allowImportingTsExtensions": true,
     "paths": {
       "@/*": ["./*"],
+      "@/types": ["./src/types"],
+      "@/providers": ["./src/providers"],
+      "@/hooks": ["./src/hooks"],
+      "@/services/*": ["./src/services/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/styles/*": ["./src/styles/*"],
       "@bryntum/gantt": ["./vendor/gantt/gantt.module.js"],
       "@bryntum/gantt-react": ["./vendor/gantt-react/lib/index.js"]
     },
@@ -39,6 +46,8 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "agents",
+    "vitest.config.ts"
   ]
 }
