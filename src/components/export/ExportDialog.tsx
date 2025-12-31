@@ -159,7 +159,7 @@ export function ExportDialog({
         </footer>
       </div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .export-dialog-overlay {
           position: fixed;
           inset: 0;
@@ -354,7 +354,7 @@ export function ExportDialog({
         :global(.dark) .export-dialog__footer {
           background: rgba(0, 0, 0, 0.1);
         }
-      `}</style>
+      `}} />
     </>
   )
 }

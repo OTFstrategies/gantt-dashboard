@@ -59,7 +59,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             {rightIcon && <span className="btn-icon btn-icon-right">{rightIcon}</span>}
           </>
         )}
-        <style jsx>{`
+        <style dangerouslySetInnerHTML={{__html: `
           .btn {
             display: inline-flex;
             align-items: center;
@@ -217,7 +217,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           :global(.dark) .btn-ghost:hover:not(:disabled) {
             background-color: var(--color-surface, #252542);
           }
-        `}</style>
+        `}} />
       </button>
     )
   }
@@ -249,7 +249,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         {...props}
       >
         <span className="icon-btn-icon">{icon}</span>
-        <style jsx>{`
+        <style dangerouslySetInnerHTML={{__html: `
           .icon-btn {
             display: inline-flex;
             align-items: center;
@@ -311,7 +311,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
             background-color: var(--color-surface, #252542);
             color: var(--color-text-primary, #f8f9fa);
           }
-        `}</style>
+        `}} />
       </button>
     )
   }

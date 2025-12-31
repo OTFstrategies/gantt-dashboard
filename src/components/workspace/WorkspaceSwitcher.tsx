@@ -111,7 +111,7 @@ export function WorkspaceSwitcher({
         </div>
       )}
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .workspace-switcher {
           position: relative;
         }
@@ -243,7 +243,7 @@ export function WorkspaceSwitcher({
         :global(.dark) .switcher-option:hover {
           background: var(--color-surface, #252542);
         }
-      `}</style>
+      `}} />
     </div>
   )
 }

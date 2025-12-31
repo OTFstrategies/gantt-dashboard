@@ -157,7 +157,7 @@ export function Sidebar({ logo, navigation, footer, collapsed = false }: Sidebar
         <div className="sidebar-footer">{footer}</div>
       )}
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .sidebar {
           display: flex;
           flex-direction: column;
@@ -278,7 +278,7 @@ export function Sidebar({ logo, navigation, footer, collapsed = false }: Sidebar
           background: var(--color-surface, #252542);
           color: var(--color-text-primary, #f8f9fa);
         }
-      `}</style>
+      `}} />
     </div>
   )
 }

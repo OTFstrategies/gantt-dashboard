@@ -142,7 +142,7 @@ export function ProjectHeader({
         )}
       </div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .project-header {
           display: flex;
           align-items: flex-start;
@@ -220,7 +220,7 @@ export function ProjectHeader({
             justify-content: flex-start;
           }
         }
-      `}</style>
+      `}} />
     </div>
   )
 }

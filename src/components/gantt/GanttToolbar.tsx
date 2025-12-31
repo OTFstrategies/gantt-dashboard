@@ -227,7 +227,7 @@ export function GanttToolbar({
         </div>
       )}
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .gantt-toolbar {
           display: flex;
           align-items: center;
@@ -316,7 +316,7 @@ export function GanttToolbar({
         :global(.dark) .export-menu button:hover {
           background: var(--color-surface, #252542);
         }
-      `}</style>
+      `}} />
     </div>
   )
 }

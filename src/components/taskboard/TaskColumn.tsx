@@ -63,7 +63,7 @@ export const TaskColumn = memo(function TaskColumn({ column, tasks, onTaskClick 
         )}
       </Droppable>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .task-column {
           display: flex;
           flex-direction: column;
@@ -133,7 +133,7 @@ export const TaskColumn = memo(function TaskColumn({ column, tasks, onTaskClick 
         .column-empty p {
           margin: 0;
         }
-      `}</style>
+      `}} />
     </div>
   )
 })

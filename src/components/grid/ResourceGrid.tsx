@@ -34,7 +34,7 @@ function ResourceGridInner({
           <div className="resource-grid__spinner" />
           <p>Resources laden...</p>
         </div>
-        <style jsx>{styles}</style>
+        <style dangerouslySetInnerHTML={{__html: styles}} />
       </div>
     )
   }
@@ -46,7 +46,7 @@ function ResourceGridInner({
           <span className="resource-grid__error-icon">⚠️</span>
           <p>{syncState.error}</p>
         </div>
-        <style jsx>{styles}</style>
+        <style dangerouslySetInnerHTML={{__html: styles}} />
       </div>
     )
   }
@@ -116,7 +116,7 @@ function ResourceGridInner({
         <p>Deze grid wordt uitgebreid met <code>TanStack Table</code> voor sorteren, filteren en virtueel scrollen.</p>
       </div>
 
-      <style jsx>{styles}</style>
+      <style dangerouslySetInnerHTML={{__html: styles}} />
     </div>
   )
 }

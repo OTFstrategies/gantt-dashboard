@@ -40,7 +40,7 @@ export function CriticalPathLegend({
         </>
       )}
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .critical-path-legend {
           display: flex;
           flex-wrap: wrap;
@@ -77,7 +77,7 @@ export function CriticalPathLegend({
         .critical-path-legend__label {
           white-space: nowrap;
         }
-      `}</style>
+      `}} />
     </div>
   )
 }

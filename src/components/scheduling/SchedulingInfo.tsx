@@ -97,7 +97,7 @@ export function SchedulingInfo({
         </div>
       )}
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .scheduling-info {
           font-size: 0.875rem;
         }
@@ -173,7 +173,7 @@ export function SchedulingInfo({
         :global(.dark) .scheduling-info__dates {
           background: rgba(255, 255, 255, 0.05);
         }
-      `}</style>
+      `}} />
     </div>
   )
 }

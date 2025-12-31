@@ -68,7 +68,7 @@ export function ViewToolbar({
         defaultScope={defaultExportScope}
       />
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .view-toolbar {
           display: flex;
           align-items: flex-start;
@@ -152,7 +152,7 @@ export function ViewToolbar({
             justify-content: flex-end;
           }
         }
-      `}</style>
+      `}} />
     </>
   )
 }

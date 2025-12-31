@@ -57,7 +57,7 @@ function DefaultErrorFallback({
           <pre className="error-boundary-stack">{error.stack}</pre>
         )}
       </div>
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .error-boundary-fallback {
           display: flex;
           align-items: center;
@@ -118,7 +118,7 @@ function DefaultErrorFallback({
           overflow: auto;
           max-height: 200px;
         }
-      `}</style>
+      `}} />
     </div>
   )
 }

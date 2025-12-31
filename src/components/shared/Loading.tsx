@@ -64,7 +64,7 @@ function LoadingSpinner({ size }: LoadingSpinnerProps) {
           className="loading-spinner-indicator"
         />
       </svg>
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .loading-spinner {
           display: inline-block;
           color: var(--color-primary, #0d6efd);
@@ -88,7 +88,7 @@ function LoadingSpinner({ size }: LoadingSpinnerProps) {
             transform: rotate(360deg);
           }
         }
-      `}</style>
+      `}} />
     </div>
   )
 }
@@ -109,7 +109,7 @@ function LoadingDots({ size }: LoadingDotsProps) {
       <span style={{ width: dotSize, height: dotSize }} />
       <span style={{ width: dotSize, height: dotSize }} />
       <span style={{ width: dotSize, height: dotSize }} />
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .loading-dots {
           display: flex;
           align-items: center;
@@ -140,7 +140,7 @@ function LoadingDots({ size }: LoadingDotsProps) {
             opacity: 1;
           }
         }
-      `}</style>
+      `}} />
     </div>
   )
 }
@@ -155,7 +155,7 @@ function LoadingBar({ size }: LoadingBarProps) {
   return (
     <div className="loading-bar" style={{ height, width: size * 3 }}>
       <div className="loading-bar-indicator" />
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .loading-bar {
           background: var(--color-border, #e9ecef);
           border-radius: 9999px;
@@ -180,7 +180,7 @@ function LoadingBar({ size }: LoadingBarProps) {
             left: 100%;
           }
         }
-      `}</style>
+      `}} />
     </div>
   )
 }
@@ -208,7 +208,7 @@ export function Loading({
     <div className="loading-content">
       {indicator}
       {text && <p className="loading-text">{text}</p>}
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .loading-content {
           display: flex;
           flex-direction: column;
@@ -220,7 +220,7 @@ export function Loading({
           color: var(--color-text-secondary, #6c757d);
           margin: 0;
         }
-      `}</style>
+      `}} />
     </div>
   )
 
@@ -228,7 +228,7 @@ export function Loading({
     return (
       <div className="loading-fullscreen">
         {content}
-        <style jsx>{`
+        <style dangerouslySetInnerHTML={{__html: `
           .loading-fullscreen {
             position: fixed;
             top: 0;
@@ -241,7 +241,7 @@ export function Loading({
             background: var(--color-background, #ffffff);
             z-index: 9999;
           }
-        `}</style>
+        `}} />
       </div>
     )
   }
@@ -250,7 +250,7 @@ export function Loading({
     return (
       <div className="loading-overlay">
         {content}
-        <style jsx>{`
+        <style dangerouslySetInnerHTML={{__html: `
           .loading-overlay {
             position: absolute;
             top: 0;
@@ -267,7 +267,7 @@ export function Loading({
           :global(.dark) .loading-overlay {
             background: rgba(26, 26, 46, 0.8);
           }
-        `}</style>
+        `}} />
       </div>
     )
   }
@@ -309,7 +309,7 @@ export function Skeleton({
         borderRadius,
       }}
     >
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .skeleton {
           background: var(--color-skeleton, #e9ecef);
           display: inline-block;
@@ -356,7 +356,7 @@ export function Skeleton({
         :global(.dark) .skeleton {
           background: var(--color-skeleton-dark, #2d2d44);
         }
-      `}</style>
+      `}} />
     </div>
   )
 }

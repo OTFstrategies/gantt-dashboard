@@ -61,7 +61,7 @@ const TaskCardInner = memo(function TaskCardInner({ task, index, onClick }: Task
             )}
           </div>
 
-          <style jsx>{`
+          <style dangerouslySetInnerHTML={{__html: `
             .task-card {
               padding: 0.75rem;
               background: var(--color-surface, #ffffff);
@@ -158,7 +158,7 @@ const TaskCardInner = memo(function TaskCardInner({ task, index, onClick }: Task
               font-size: 0.625rem;
               color: var(--color-text-tertiary, #adb5bd);
             }
-          `}</style>
+          `}} />
         </div>
       )}
     </Draggable>

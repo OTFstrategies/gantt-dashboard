@@ -34,7 +34,7 @@ function GanttViewInner({
           <div className="gantt-view__spinner" />
           <p>Project laden...</p>
         </div>
-        <style jsx>{styles}</style>
+        <style dangerouslySetInnerHTML={{__html: styles}} />
       </div>
     )
   }
@@ -46,7 +46,7 @@ function GanttViewInner({
           <span className="gantt-view__error-icon">⚠️</span>
           <p>{syncState.error}</p>
         </div>
-        <style jsx>{styles}</style>
+        <style dangerouslySetInnerHTML={{__html: styles}} />
       </div>
     )
   }
@@ -86,7 +86,7 @@ function GanttViewInner({
           </div>
         )}
       </div>
-      <style jsx>{styles}</style>
+      <style dangerouslySetInnerHTML={{__html: styles}} />
     </div>
   )
 }

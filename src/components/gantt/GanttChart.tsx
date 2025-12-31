@@ -219,7 +219,7 @@ function GanttChartInner({
           <p>Geen taken om te tonen</p>
           <small>Voeg taken toe om de Gantt chart te zien</small>
         </div>
-        <style jsx>{styles}</style>
+        <style dangerouslySetInnerHTML={{__html: styles}} />
       </div>
     )
   }
@@ -233,7 +233,7 @@ function GanttChartInner({
           <p>Geen taken met datums</p>
           <small>Taken hebben een startdatum nodig voor de Gantt chart</small>
         </div>
-        <style jsx>{styles}</style>
+        <style dangerouslySetInnerHTML={{__html: styles}} />
       </div>
     )
   }
@@ -285,8 +285,8 @@ function GanttChartInner({
         <div ref={containerRef} className="gantt-chart__svg" />
       </div>
 
-      <style jsx>{styles}</style>
-      <style jsx global>{globalStyles}</style>
+      <style dangerouslySetInnerHTML={{__html: styles}} />
+      <style dangerouslySetInnerHTML={{__html: globalStyles}} />
     </div>
   )
 }

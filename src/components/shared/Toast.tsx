@@ -115,7 +115,7 @@ export function ToastProvider({
         {toasts.map(toast => (
           <ToastItem key={toast.id} toast={toast} onClose={() => removeToast(toast.id)} />
         ))}
-        <style jsx>{`
+        <style dangerouslySetInnerHTML={{__html: `
           .toast-container {
             position: fixed;
             z-index: var(--z-toast, 1080);
@@ -125,7 +125,7 @@ export function ToastProvider({
             max-width: 400px;
             pointer-events: none;
           }
-        `}</style>
+        `}} />
       </div>
     </ToastContext.Provider>
   )
@@ -200,7 +200,7 @@ function ToastItem({ toast, onClose }: ToastItemProps) {
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       </button>
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .toast-item {
           display: flex;
           align-items: flex-start;
@@ -272,7 +272,7 @@ function ToastItem({ toast, onClose }: ToastItemProps) {
         :global(.dark) .toast-item {
           background: var(--color-surface-elevated, #2d2d4a);
         }
-      `}</style>
+      `}} />
     </div>
   )
 }

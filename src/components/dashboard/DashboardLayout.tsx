@@ -143,7 +143,7 @@ export function DashboardLayout({
         {footer && <footer className="dashboard-footer">{footer}</footer>}
       </div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .dashboard-layout {
           display: flex;
           min-height: 100vh;
@@ -281,7 +281,7 @@ export function DashboardLayout({
             display: none;
           }
         }
-      `}</style>
+      `}} />
     </div>
   )
 }

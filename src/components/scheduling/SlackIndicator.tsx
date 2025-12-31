@@ -51,7 +51,7 @@ export function SlackIndicator({
         <span className="slack-indicator__label">{getLabel()}</span>
       )}
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .slack-indicator {
           display: inline-flex;
           align-items: center;
@@ -102,7 +102,7 @@ export function SlackIndicator({
           color: var(--color-critical, #dc3545);
           font-weight: 500;
         }
-      `}</style>
+      `}} />
     </div>
   )
 }

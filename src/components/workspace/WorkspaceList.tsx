@@ -99,13 +99,13 @@ export function WorkspaceList({ onSelect, className = '' }: WorkspaceListProps) 
             <Skeleton key={i} height={72} />
           ))}
         </div>
-        <style jsx>{`
+        <style dangerouslySetInnerHTML={{__html: `
           .workspace-list-loading {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
           }
-        `}</style>
+        `}} />
       </div>
     )
   }
@@ -117,7 +117,7 @@ export function WorkspaceList({ onSelect, className = '' }: WorkspaceListProps) 
         <Button variant="outline" size="sm" onClick={loadWorkspaces}>
           Opnieuw proberen
         </Button>
-        <style jsx>{`
+        <style dangerouslySetInnerHTML={{__html: `
           .workspace-list-error {
             text-align: center;
             padding: 2rem;
@@ -126,7 +126,7 @@ export function WorkspaceList({ onSelect, className = '' }: WorkspaceListProps) 
           .workspace-list-error p {
             margin: 0 0 1rem;
           }
-        `}</style>
+        `}} />
       </div>
     )
   }
@@ -172,7 +172,7 @@ export function WorkspaceList({ onSelect, className = '' }: WorkspaceListProps) 
         </div>
       )}
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .workspace-list {
           display: flex;
           flex-direction: column;
@@ -235,7 +235,7 @@ export function WorkspaceList({ onSelect, className = '' }: WorkspaceListProps) 
         :global(.dark) .filter-btn.active {
           background: var(--color-surface-elevated, #2d2d4a);
         }
-      `}</style>
+      `}} />
     </div>
   )
 }
@@ -267,7 +267,7 @@ function WorkspaceCard({ workspace, onSelect }: WorkspaceCardProps) {
           <p className="workspace-card-description">{workspace.description}</p>
         )}
       </div>
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .workspace-card {
           display: flex;
           gap: 1rem;
@@ -337,7 +337,7 @@ function WorkspaceCard({ workspace, onSelect }: WorkspaceCardProps) {
         :global(.dark) .workspace-card-icon {
           background: var(--color-surface-elevated, #2d2d4a);
         }
-      `}</style>
+      `}} />
     </Link>
   )
 }

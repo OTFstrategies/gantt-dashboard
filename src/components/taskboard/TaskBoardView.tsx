@@ -35,7 +35,7 @@ function TaskBoardViewInner({
           <div className="taskboard-view__spinner" />
           <p>TaskBoard laden...</p>
         </div>
-        <style jsx>{styles}</style>
+        <style dangerouslySetInnerHTML={{__html: styles}} />
       </div>
     )
   }
@@ -47,7 +47,7 @@ function TaskBoardViewInner({
           <span className="taskboard-view__error-icon">⚠️</span>
           <p>{syncState.error}</p>
         </div>
-        <style jsx>{styles}</style>
+        <style dangerouslySetInnerHTML={{__html: styles}} />
       </div>
     )
   }
@@ -71,7 +71,7 @@ function TaskBoardViewInner({
         onTaskClick={handleTaskClick}
         onTaskUpdate={handleTaskUpdate}
       />
-      <style jsx>{styles}</style>
+      <style dangerouslySetInnerHTML={{__html: styles}} />
     </div>
   )
 }

@@ -104,13 +104,13 @@ export function VaultList({
             <Skeleton key={i} height={120} />
           ))}
         </div>
-        <style jsx>{`
+        <style dangerouslySetInnerHTML={{__html: `
           .vault-loading {
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
           }
-        `}</style>
+        `}} />
       </div>
     )
   }
@@ -122,7 +122,7 @@ export function VaultList({
         <Button variant="outline" size="sm" onClick={loadItems}>
           Opnieuw proberen
         </Button>
-        <style jsx>{`
+        <style dangerouslySetInnerHTML={{__html: `
           .vault-error {
             text-align: center;
             padding: 2rem;
@@ -131,7 +131,7 @@ export function VaultList({
           .vault-error p {
             margin: 0 0 1rem;
           }
-        `}</style>
+        `}} />
       </div>
     )
   }
@@ -185,7 +185,7 @@ export function VaultList({
         </div>
       )}
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .vault-list {
           display: flex;
           flex-direction: column;
@@ -266,7 +266,7 @@ export function VaultList({
         .vault-empty p {
           margin: 0;
         }
-      `}</style>
+      `}} />
     </div>
   )
 }
@@ -360,7 +360,7 @@ function VaultCard({ item, onSelect, onProcess }: VaultCardProps) {
         </div>
       )}
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .vault-card {
           padding: 1rem;
           background: var(--color-surface, #ffffff);
@@ -425,7 +425,7 @@ function VaultCard({ item, onSelect, onProcess }: VaultCardProps) {
           padding-top: 0.75rem;
           border-top: 1px solid var(--color-border, #e9ecef);
         }
-      `}</style>
+      `}} />
     </div>
   )
 }

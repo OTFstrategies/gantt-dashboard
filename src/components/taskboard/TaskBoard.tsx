@@ -102,7 +102,7 @@ export function TaskBoard({
           />
         ))}
 
-        <style jsx>{`
+        <style dangerouslySetInnerHTML={{__html: `
           .taskboard {
             display: flex;
             gap: 1rem;
@@ -111,7 +111,7 @@ export function TaskBoard({
             overflow-x: auto;
             overflow-y: hidden;
           }
-        `}</style>
+        `}} />
       </div>
     </DragDropContext>
   )

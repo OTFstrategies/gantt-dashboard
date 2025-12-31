@@ -85,7 +85,7 @@ export function ViewSwitcher({
         </button>
       ))}
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .view-switcher {
           display: flex;
           gap: 0.25rem;
@@ -152,7 +152,7 @@ export function ViewSwitcher({
         :global(.dark) .view-button.active {
           background: var(--color-surface-elevated, #2d2d4a);
         }
-      `}</style>
+      `}} />
     </div>
   )
 }

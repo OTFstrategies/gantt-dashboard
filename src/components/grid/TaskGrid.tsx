@@ -262,7 +262,7 @@ const TaskGridInner = memo(function TaskGridInner({
         </table>
       </div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .task-grid {
           display: flex;
           flex-direction: column;
@@ -421,7 +421,7 @@ const TaskGridInner = memo(function TaskGridInner({
           font-size: 0.8125rem;
           opacity: 0.7;
         }
-      `}</style>
+      `}} />
     </div>
   )
 })

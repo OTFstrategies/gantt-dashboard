@@ -39,7 +39,7 @@ export function CriticalPathToggle({
         )}
       </span>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .critical-path-toggle {
           display: inline-flex;
           align-items: center;
@@ -64,7 +64,7 @@ export function CriticalPathToggle({
         .critical-path-toggle__count {
           color: var(--color-text-secondary, #6c757d);
         }
-      `}</style>
+      `}} />
     </label>
   )
 }

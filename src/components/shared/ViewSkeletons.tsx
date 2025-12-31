@@ -44,7 +44,7 @@ export function GanttSkeleton() {
         ))}
       </div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .gantt-skeleton {
           background: var(--color-surface, #ffffff);
           border-radius: 8px;
@@ -88,7 +88,7 @@ export function GanttSkeleton() {
         .gantt-skeleton__bar-container {
           flex: 1;
         }
-      `}</style>
+      `}} />
     </div>
   )
 }
@@ -125,7 +125,7 @@ export function TaskBoardSkeleton() {
         </div>
       ))}
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .taskboard-skeleton {
           display: flex;
           gap: 1rem;
@@ -173,7 +173,7 @@ export function TaskBoardSkeleton() {
           align-items: center;
           margin-top: 0.25rem;
         }
-      `}</style>
+      `}} />
     </div>
   )
 }
@@ -216,7 +216,7 @@ export function GridSkeleton() {
         ))}
       </div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .grid-skeleton {
           background: var(--color-surface, #ffffff);
           border-radius: 8px;
@@ -254,7 +254,7 @@ export function GridSkeleton() {
         .grid-skeleton__row:last-child {
           border-bottom: none;
         }
-      `}</style>
+      `}} />
     </div>
   )
 }
@@ -307,7 +307,7 @@ export function CalendarSkeleton() {
         ))}
       </div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .calendar-skeleton {
           background: var(--color-surface, #ffffff);
           border-radius: 8px;
@@ -369,7 +369,7 @@ export function CalendarSkeleton() {
         .calendar-skeleton__cell:first-child {
           border-left: none;
         }
-      `}</style>
+      `}} />
     </div>
   )
 }
