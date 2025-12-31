@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
-import { Loading, Button, Skeleton } from '@/components/shared'
-import type { Workspace, WorkspaceType } from '@/types'
+import { Button, Skeleton } from '@/components/shared'
+import type { Workspace } from '@/types'
 
 // =============================================================================
 // Types

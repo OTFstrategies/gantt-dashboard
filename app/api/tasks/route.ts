@@ -55,7 +55,7 @@ export async function GET(request: NextRequest) {
  */
 export async function POST(request: NextRequest) {
   try {
-    const user = await getUser()
+    await getUser()
     const supabase = await createClient()
     const body = await request.json()
 

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { Loading, Button, Skeleton } from '@/components/shared'
+import { Button, Skeleton } from '@/components/shared'
 import type { VaultItem, VaultStatus } from '@/types'
 
 // =============================================================================

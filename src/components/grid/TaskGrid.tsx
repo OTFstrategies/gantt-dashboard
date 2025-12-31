@@ -64,9 +64,9 @@ function getStatusColor(percentDone: number): string {
 
 const TaskGridInner = memo(function TaskGridInner({
   tasks,
-  resources = [],
+  resources: _resources = [],
   className = '',
-  onTaskUpdate,
+  onTaskUpdate: _onTaskUpdate,
   onTaskClick,
 }: TaskGridProps) {
   const [sorting, setSorting] = useState<SortingState>([])

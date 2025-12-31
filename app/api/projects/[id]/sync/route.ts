@@ -44,7 +44,7 @@ export async function POST(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const user = await getUser()
+    await getUser()
     const supabase = await createClient()
     const { id: projectId } = await params
 
@@ -215,7 +215,7 @@ async function processCrudOperations(
     for (const record of operations.updated) {
       const { id, ...updateData } = record as { id: string; [key: string]: unknown }
 
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from(table)
         .update({
           ...updateData,

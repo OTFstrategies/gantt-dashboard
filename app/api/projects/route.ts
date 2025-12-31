@@ -14,7 +14,7 @@ import {
  */
 export async function GET(request: NextRequest) {
   try {
-    const user = await getUser()
+    await getUser()
     const supabase = await createClient()
     const { searchParams } = new URL(request.url)
     const workspaceId = searchParams.get('workspaceId')

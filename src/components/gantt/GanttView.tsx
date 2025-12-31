@@ -23,7 +23,7 @@ function GanttViewInner({
   className = '',
   onTaskClick,
   onTaskDoubleClick,
-  readOnly = false,
+  readOnly: _readOnly = false,
 }: GanttViewProps) {
   const { projectData, syncState } = useProject()
 

@@ -158,7 +158,7 @@ export function AuthGuard({
   fallback,
   redirectTo = '/login',
 }: AuthGuardProps) {
-  const { user, isLoading, isAuthenticated, checkWorkspaceAccess } = useAuth()
+  const { isLoading, isAuthenticated, checkWorkspaceAccess } = useAuth()
   const [hasAccess, setHasAccess] = useState<boolean | null>(null)
   const router = useRouter()
   const pathname = usePathname()

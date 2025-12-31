@@ -4,7 +4,7 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import Gantt, { type Task as GanttTask } from 'frappe-gantt'
 import type { Task, Dependency } from '@/types'
 import { ErrorBoundary } from '../shared/ErrorBoundary'
-import { CriticalPathToggle, CriticalPathLegend, SlackIndicator } from '../scheduling'
+import { CriticalPathToggle, CriticalPathLegend } from '../scheduling'
 import { calculateSchedule } from '@/lib/scheduling'
 
 // =============================================================================

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { memo, useCallback } from 'react'
+import React, { memo } from 'react'
 import { Draggable } from '@hello-pangea/dnd'
 import type { Task } from '@/types'
 

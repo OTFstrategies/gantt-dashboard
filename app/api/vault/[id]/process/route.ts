@@ -62,7 +62,7 @@ export async function POST(
         }
         break
 
-      case 'complete':
+      case 'complete': {
         if (item.status !== 'processing') {
           return errorResponse('Can only complete items in processing status')
         }
@@ -83,6 +83,7 @@ export async function POST(
           updated_at: new Date().toISOString(),
         }
         break
+      }
 
       case 'reject':
         if (!['input', 'processing'].includes(item.status)) {
