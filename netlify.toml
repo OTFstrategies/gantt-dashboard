@@ -1,0 +1,33 @@
+# Netlify Configuration for Gantt Dashboard
+# Next.js 16 App Router deployment
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Next.js Runtime Plugin (automatically applied for Next.js apps)
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Redirects and rewrites are handled by Next.js
+# No additional configuration needed
+
+# Environment variables (set in Netlify Dashboard)
+# Required:
+# - NEXT_PUBLIC_SUPABASE_URL
+# - NEXT_PUBLIC_SUPABASE_ANON_KEY
+# - SUPABASE_SERVICE_ROLE_KEY
+# - NEXT_PUBLIC_APP_URL (set to your Netlify domain)
+# - NEXT_PUBLIC_ENV=production
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
