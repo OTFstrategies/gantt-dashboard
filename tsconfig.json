@@ -27,9 +27,7 @@
       "@/services/*": ["./src/services/*"],
       "@/components/*": ["./src/components/*"],
       "@/lib/*": ["./src/lib/*"],
-      "@/styles/*": ["./src/styles/*"],
-      "@bryntum/gantt": ["./vendor/gantt/gantt.module.js"],
-      "@bryntum/gantt-react": ["./vendor/gantt-react/lib/index.js"]
+      "@/styles/*": ["./src/styles/*"]
     },
     "baseUrl": ".",
     "plugins": [
@@ -47,7 +45,7 @@
   ],
   "exclude": [
     "node_modules",
-    "agents",
+    "artifacts",
     "vitest.config.ts"
   ]
 }
