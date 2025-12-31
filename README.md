@@ -1,99 +1,185 @@
-# Gantt Dashboard - Multi-Workspace Project Management Platform
+# Gantt Dashboard
 
-Een uitgebreid projectmanagement platform voor 4 afdelingen met uniforme ISO workflow.
+Een modern project management dashboard gebouwd met Next.js 16, React 18 en Supabase. Het dashboard biedt meerdere views voor projectplanning en -tracking: Gantt charts, kalenders, taskboards, grids en timelines.
+
+## Features
+
+- **Gantt View** - Visualiseer projecttaken met dependencies, milestones en kritieke paden
+- **Calendar View** - Maandoverzicht met drag & drop voor task scheduling
+- **TaskBoard** - Kanban-style board met kolommen voor To Do, In Progress en Done
+- **Grid View** - TanStack Table implementatie met sorting en filtering
+- **Timeline View** - Visualiseer project deliverables op een tijdlijn
 
 ## Tech Stack
 
-- **Frontend**: Next.js 16, React 18, TypeScript
-- **UI Components**: Bryntum Suite 7.1.0 (Gantt, Calendar, TaskBoard, Grid)
-- **Backend**: Supabase (PostgreSQL, Auth, RLS)
-- **Deployment**: Vercel
+### Frontend
+- **Framework**: Next.js 16 (App Router)
+- **UI Library**: React 18
+- **Language**: TypeScript 5
+- **Styling**: SCSS modules
 
-## Documentatie
+### Backend
+- **Database**: Supabase (PostgreSQL)
+- **Authentication**: Supabase Auth
+- **Security**: Row Level Security (RLS) policies
 
-| Document | Beschrijving |
-|----------|--------------|
-| [OUTCOMES.md](OUTCOMES.md) | 9 Outcomes met Key Results |
-| [DELIVERABLES.md](DELIVERABLES.md) | 29 Deliverables index |
-| [SECTIONS.md](SECTIONS.md) | Sectie-indeling per deliverable |
-| [TASKS.md](TASKS.md) | 458 Taken met acceptance criteria |
-| [WBS-AGENTS.md](WBS-AGENTS.md) | 12 AI Agents met RACI matrix |
-| [PROMPTS.md](PROMPTS.md) | Claude Code CLI prompts |
+### UI Libraries
+- **Gantt Charts**: frappe-gantt
+- **Calendar**: react-big-calendar
+- **Drag & Drop**: @hello-pangea/dnd
+- **Data Tables**: @tanstack/react-table
+- **Export**: file-saver, xlsx
 
-### Deliverable Modules
+## Vereisten
 
-| Module | Inhoud |
-|--------|--------|
-| [DELIVERABLES-CODE.md](DELIVERABLES-CODE.md) | D1-D10: Code deliverables |
-| [DELIVERABLES-INFRA.md](DELIVERABLES-INFRA.md) | D11-D14: Infrastructure |
-| [DELIVERABLES-DOCS.md](DELIVERABLES-DOCS.md) | D15-D17: Documentatie |
-| [DELIVERABLES-MIRO.md](DELIVERABLES-MIRO.md) | M1-M7: Miro boards |
-| [DELIVERABLES-PROCESS.md](DELIVERABLES-PROCESS.md) | P1-P5: Process docs |
-
-## AI Agent Framework
-
-Het project gebruikt een multi-agent systeem met 12 gespecialiseerde agents:
-
-| Agent | Rol |
-|-------|-----|
-| A0 Orchestrator | Project coördinatie |
-| A1 Architect | System design |
-| A2 Frontend | React/Next.js |
-| A3 Bryntum | Gantt, Calendar, TaskBoard, Grid |
-| A4 Backend | API/Supabase |
-| A5 Database | PostgreSQL/RLS |
-| A6 Auth | Supabase Auth |
-| A7 DevOps | Vercel/CI/CD |
-| A8 Documenter | Technische docs |
-| A9 Visual | UI/UX design |
-| A10 Process | Workflows |
-| A11 QA | Testing |
-
-### Claude Code CLI Gebruik
-
-**Optie 1: MCP Server (aanbevolen)**
-
-De MCP server is al geregistreerd. Gebruik prompts met `/prompt`:
-
-```bash
-claude
-# In Claude Code:
-/prompt start              # Begin met volledige context
-/prompt status             # Project status
-/prompt sprint 1           # Start Sprint 1
-/prompt deliverable D2     # Werk aan Gantt Module
-/prompt agent A3           # Neem rol Bryntum Specialist
-```
-
-**Optie 2: Handmatige prompts**
-
-Kopieer een prompt uit [PROMPTS.md](PROMPTS.md) en plak in Claude Code.
-
-## Sprint Structuur
-
-| Sprint | Naam | Deliverables |
-|--------|------|--------------|
-| 1 | Foundation | D11, D12, D14, D1 |
-| 2 | Core Views | D2, D3, D4 |
-| 3 | Extended Views | D5, D8, D13 |
-| 4 | Application | D6, D7, D9 |
-| 5 | Features & Polish | D10, D15-D17, M1-M7, P1-P5 |
+- Node.js >= 20.0.0
+- npm of yarn
+- Supabase account
 
 ## Installatie
 
+1. Clone de repository:
+```bash
+git clone https://github.com/OTFstrategies/gantt-dashboard.git
+cd gantt-dashboard
+```
+
+2. Installeer dependencies:
 ```bash
 npm install
+```
+
+3. Configureer environment variabelen:
+```bash
+cp .env.example .env.local
+```
+
+Vul de volgende variabelen in `.env.local`:
+```env
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+
+4. Run database migraties in Supabase:
+```sql
+-- Zie supabase/migrations/ voor alle migraties
+```
+
+5. Start de development server:
+```bash
 npm run dev
 ```
 
-Navigate to http://localhost:3000
+De applicatie draait op [http://localhost:3000](http://localhost:3000).
 
-## Bryntum Licentie
+## Scripts
 
-Dit project gebruikt Bryntum Suite 7.1.0. Zie [Bryntum npm repository guide](https://bryntum.com/products/gantt/docs/guide/Gantt/npm-repository) voor setup.
+```bash
+npm run dev          # Start development server
+npm run build        # Build voor productie
+npm start            # Start productie server
+npm run lint         # Run ESLint
+npm run test         # Run tests met Vitest
+npm run test:run     # Run tests eenmalig
+npm run test:coverage # Run tests met coverage
+npm run typecheck    # TypeScript type checking
+```
 
-## Links
+## Project Structure
 
-- [Next.js Docs](https://nextjs.org/docs)
-- [Bryntum Gantt Docs](https://bryntum.com/products/gantt/docs/)
-- [Supabase Docs](https://supabase.com/docs)
+```
+gantt-dashboard/
+├── app/                    # Next.js App Router
+│   ├── api/               # API routes (CRUD endpoints)
+│   ├── gantt/             # Gantt view page
+│   ├── calendar/          # Calendar view page
+│   ├── taskboard/         # TaskBoard view page
+│   ├── grid/              # Grid view page
+│   └── timeline/          # Timeline view page
+├── src/
+│   ├── components/        # React components
+│   ├── providers/         # Context providers (ProjectProvider)
+│   ├── hooks/            # Custom React hooks
+│   ├── types/            # TypeScript type definities
+│   └── index.ts          # Main exports
+├── supabase/
+│   └── migrations/        # Database migraties
+├── public/               # Static assets
+└── styles/               # Global styles
+```
+
+## Database Schema
+
+Het project gebruikt Supabase met de volgende tabellen:
+
+- `projects` - Project informatie
+- `tasks` - Individuele taken met dependencies
+- `deliverables` - Project deliverables
+- `milestones` - Project milestones
+- `resources` - Resource allocatie
+- `time_tracking` - Time tracking entries
+
+Alle tabellen hebben Row Level Security (RLS) policies voor veilige data access.
+
+## Development
+
+### Type System
+Het project gebruikt een strict TypeScript configuratie. Alle types zijn gedefinieerd in `src/types/`:
+- `entities.ts` - Core entiteiten (Project, Task, etc.)
+- `project.ts` - Project-gerelateerde types
+- `api.ts` - API request/response types
+- `database.ts` - Database schema types
+
+### State Management
+State wordt beheerd via React Context met de `ProjectProvider`:
+```tsx
+import { ProjectProvider, useProject } from 'gantt-dashboard'
+
+// In je app
+<ProjectProvider>
+  <YourComponent />
+</ProjectProvider>
+
+// In componenten
+const { tasks, updateTask } = useProject()
+```
+
+### Testing
+Tests worden geschreven met Vitest en React Testing Library:
+```bash
+npm run test         # Watch mode
+npm run test:run     # Eenmalig
+npm run test:coverage # Met coverage
+```
+
+## AI Agent Framework
+
+Het project gebruikt een multi-agent systeem voor geautomatiseerde development workflows. Zie `agents/` directory voor meer informatie over de agent pipeline.
+
+## Documentatie
+
+Voor gedetailleerde projectdocumentatie, zie:
+
+- `STATUS.md` - Volledige projectstatus en phase tracking
+- `WBS-GANTT-REBUILD.md` - Work Breakdown Structure
+- `CLAUDE.md` - Claude Code instructies en conventies
+
+## Contributing
+
+Contributions zijn welkom! Voor grote wijzigingen, open eerst een issue om te bespreken wat je wilt veranderen.
+
+1. Fork het project
+2. Creëer een feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit je wijzigingen (`git commit -m 'Add some AmazingFeature'`)
+4. Push naar de branch (`git push origin feature/AmazingFeature`)
+5. Open een Pull Request
+
+## License
+
+Dit project is private en eigendom van OTFstrategies.
+
+## Contact
+
+Mick - OTFstrategies
+
+Project Link: [https://github.com/OTFstrategies/gantt-dashboard](https://github.com/OTFstrategies/gantt-dashboard)
