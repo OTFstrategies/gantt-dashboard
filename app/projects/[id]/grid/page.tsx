@@ -25,7 +25,7 @@ function GridContent() {
         <main className="grid-content">
           <GridSkeleton />
         </main>
-        <style jsx>{pageStyles}</style>
+        <style dangerouslySetInnerHTML={{__html: pageStyles}} />
       </div>
     )
   }
@@ -34,7 +34,7 @@ function GridContent() {
     return (
       <div className="grid-error">
         <p>Fout: {syncState.error}</p>
-        <style jsx>{pageStyles}</style>
+        <style dangerouslySetInnerHTML={{__html: pageStyles}} />
       </div>
     )
   }

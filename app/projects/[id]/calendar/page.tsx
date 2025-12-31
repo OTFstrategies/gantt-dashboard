@@ -25,7 +25,7 @@ function CalendarContent() {
         <main className="calendar-content">
           <CalendarSkeleton />
         </main>
-        <style jsx>{pageStyles}</style>
+        <style dangerouslySetInnerHTML={{__html: pageStyles}} />
       </div>
     )
   }
@@ -34,7 +34,7 @@ function CalendarContent() {
     return (
       <div className="calendar-error">
         <p>Fout: {syncState.error}</p>
-        <style jsx>{pageStyles}</style>
+        <style dangerouslySetInnerHTML={{__html: pageStyles}} />
       </div>
     )
   }

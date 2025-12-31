@@ -25,7 +25,7 @@ function GanttContent() {
         <main className="gantt-content">
           <GanttSkeleton />
         </main>
-        <style jsx>{pageStyles}</style>
+        <style dangerouslySetInnerHTML={{__html: pageStyles}} />
       </div>
     )
   }
@@ -34,7 +34,7 @@ function GanttContent() {
     return (
       <div className="gantt-error">
         <p>Fout: {syncState.error}</p>
-        <style jsx>{pageStyles}</style>
+        <style dangerouslySetInnerHTML={{__html: pageStyles}} />
       </div>
     )
   }

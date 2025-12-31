@@ -68,7 +68,7 @@ function ProjectContent() {
         </div>
       </nav>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .project-detail {
           max-width: 1200px;
           margin: 0 auto;
@@ -150,7 +150,7 @@ function ProjectContent() {
         .project-error {
           color: var(--color-error, #dc3545);
         }
-      `}</style>
+      `}} />
     </div>
   )
 }
